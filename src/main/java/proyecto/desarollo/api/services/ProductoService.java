@@ -2,7 +2,7 @@ package proyecto.desarollo.api.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import proyecto.desarollo.api.exception.ProductoNotFoundException;
+import proyecto.desarollo.api.exceptions.ProductoNotFoundException;
 import proyecto.desarollo.api.modelos.Producto;
 import proyecto.desarollo.api.repositories.ProductoRepository;
 

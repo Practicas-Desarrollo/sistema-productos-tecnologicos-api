@@ -3,10 +3,10 @@ version: "3.9"
 services:
   postgres:
     image: postgres:latest
-    container_name: phone-store-api
+    container_name: tienda-celulares-api
     # restart: always
     environment:
-      POSTGRES_DB: phone-store-db
+      POSTGRES_DB: tienda-celulares-db
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       TZ: "UTC-4"
@@ -16,7 +16,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: phone-store-pgadmin
+    container_name: tienda-celulares-pgadmin
     # restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com

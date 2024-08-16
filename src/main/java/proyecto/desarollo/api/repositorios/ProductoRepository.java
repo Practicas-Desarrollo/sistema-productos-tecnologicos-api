@@ -1,4 +1,4 @@
-package proyecto.desarollo.api.repositories;
+package proyecto.desarollo.api.repositorios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import proyecto.desarollo.api.modelos.Producto;

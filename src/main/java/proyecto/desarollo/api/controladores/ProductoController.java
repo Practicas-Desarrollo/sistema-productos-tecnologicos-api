@@ -1,11 +1,11 @@
-package proyecto.desarollo.api.controllers;
+package proyecto.desarollo.api.controladores;
 
 import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import proyecto.desarollo.api.modelos.Producto;
-import proyecto.desarollo.api.services.ProductoService;
+import proyecto.desarollo.api.servicios.ProductoService;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,10 +1,10 @@
-package proyecto.desarollo.api.services;
+package proyecto.desarollo.api.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import proyecto.desarollo.api.exceptions.ProductoNotFoundException;
+import proyecto.desarollo.api.excepciones.ProductoNotFoundException;
 import proyecto.desarollo.api.modelos.Producto;
-import proyecto.desarollo.api.repositories.ProductoRepository;
+import proyecto.desarollo.api.repositorios.ProductoRepository;
 
 import java.util.List;
 import java.util.UUID;

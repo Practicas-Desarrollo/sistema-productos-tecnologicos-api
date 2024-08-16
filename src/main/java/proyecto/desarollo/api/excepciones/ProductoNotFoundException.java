@@ -1,4 +1,4 @@
-package proyecto.desarollo.api.exceptions;
+package proyecto.desarollo.api.excepciones;
 
 public class ProductoNotFoundException extends RuntimeException {
   public ProductoNotFoundException(String message) {

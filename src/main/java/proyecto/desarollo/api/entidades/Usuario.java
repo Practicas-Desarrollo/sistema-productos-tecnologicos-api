@@ -20,11 +20,15 @@ public class Usuario extends Persona implements Serializable {
 
   public Usuario() {}
 
-  public Usuario(UUID id, String nombre, String apellidoPaterno,
-                 String apellidoMaterno, String genero,
-                 String username, String password, int estado) {
-    super(id, nombre, apellidoPaterno,
-            apellidoMaterno, genero);
+  public Usuario(UUID id, String nombre, String apellidoPaterno, String apellidoMaterno, String genero, String username, String password, int estado) {
+    super(id, nombre, apellidoPaterno, apellidoMaterno, genero);
+    this.username = username;
+    this.password = password;
+    this.estado = estado;
+  }
+
+  public Usuario(String nombre, String apellidoPaterno, String apellidoMaterno, String genero, String username, String password, int estado) {
+    super(nombre, apellidoPaterno, apellidoMaterno, genero);
     this.username = username;
     this.password = password;
     this.estado = estado;

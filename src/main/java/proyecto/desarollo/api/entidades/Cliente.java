@@ -8,7 +8,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "cliente")
 public class Cliente extends Persona implements Serializable {
-//  @GeneratedValue(strategy = GenerationType.UUID)
+  @GeneratedValue(strategy = GenerationType.UUID)
   @Column(name = "codigo_cliente", nullable = false, updatable = false)
   private UUID codigoCliente;
 
@@ -22,10 +22,15 @@ public class Cliente extends Persona implements Serializable {
 
   public Cliente() {}
 
-  public Cliente(UUID id, String nombre, String apellidoPaterno,
-                 String apellidoMaterno, String genero,
-                 UUID codigoCliente, int ci, int nit) {
+  public Cliente(UUID id, String nombre, String apellidoPaterno, String apellidoMaterno, String genero, UUID codigoCliente, int ci, int nit) {
     super(id, nombre, apellidoPaterno, apellidoMaterno, genero);
+    this.codigoCliente = codigoCliente;
+    this.ci = ci;
+    this.nit = nit;
+  }
+
+  public Cliente(String nombre, String apellidoPaterno, String apellidoMaterno, String genero, UUID codigoCliente, int ci, int nit) {
+    super(nombre, apellidoPaterno, apellidoMaterno, genero);
     this.codigoCliente = codigoCliente;
     this.ci = ci;
     this.nit = nit;

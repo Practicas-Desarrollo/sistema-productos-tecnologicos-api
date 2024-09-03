@@ -28,9 +28,15 @@ public abstract class Persona {
 
   public Persona() {}
 
-  public Persona(UUID id, String nombre, String apellidoPaterno,
-                 String apellidoMaterno, String genero) {
+  public Persona(UUID id, String nombre, String apellidoPaterno, String apellidoMaterno, String genero) {
     this.id = id;
+    this.nombre = nombre;
+    this.apellidoPaterno = apellidoPaterno;
+    this.apellidoMaterno = apellidoMaterno;
+    this.genero = genero;
+  }
+
+  public Persona(String nombre, String apellidoPaterno, String apellidoMaterno, String genero) {
     this.nombre = nombre;
     this.apellidoPaterno = apellidoPaterno;
     this.apellidoMaterno = apellidoMaterno;

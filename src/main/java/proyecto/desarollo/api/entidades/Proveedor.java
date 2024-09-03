@@ -24,11 +24,16 @@ public class Proveedor extends Persona implements Serializable {
 
   public Proveedor() {}
 
-  public Proveedor(UUID id, String nombre, String apellidoPaterno,
-                   String apellidoMaterno, String genero,
-                   UUID codigoProveedor, String telefono, String email,
-                   String nombreEmpresa) {
+  public Proveedor(UUID id, String nombre, String apellidoPaterno, String apellidoMaterno, String genero, UUID codigoProveedor, String telefono, String email, String nombreEmpresa) {
     super(id, nombre, apellidoPaterno, apellidoMaterno, genero);
+    this.codigoProveedor = codigoProveedor;
+    this.telefono = telefono;
+    this.email = email;
+    this.nombreEmpresa = nombreEmpresa;
+  }
+
+  public Proveedor(String nombre, String apellidoPaterno, String apellidoMaterno, String genero, UUID codigoProveedor, String telefono, String email, String nombreEmpresa) {
+    super(nombre, apellidoPaterno, apellidoMaterno, genero);
     this.codigoProveedor = codigoProveedor;
     this.telefono = telefono;
     this.email = email;

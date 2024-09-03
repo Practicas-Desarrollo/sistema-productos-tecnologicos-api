@@ -62,13 +62,4 @@ public class Cliente extends Persona implements Serializable {
   public void setRol(Rol rol) {
     this.rol = rol;
   }
-
-  @Override
-  public String toString() {
-    return "Cliente{" +
-            "codigoCliente=" + codigoCliente +
-            ", ci=" + ci +
-            ", nit=" + nit +
-            '}';
-  }
 }

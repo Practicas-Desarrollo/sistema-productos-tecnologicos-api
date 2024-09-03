@@ -26,8 +26,7 @@ public abstract class Persona {
   @NotNull(message = "El genero no puede ser nulo")
   private String genero;
 
-  public Persona() {
-  }
+  public Persona() {}
 
   public Persona(UUID id, String nombre, String apellidoPaterno,
                  String apellidoMaterno, String genero) {
@@ -76,16 +75,5 @@ public abstract class Persona {
 
   public void setGenero(String genero) {
     this.genero = genero;
-  }
-
-  @Override
-  public String toString() {
-    return "Persona{" +
-            "id=" + id +
-            ", nombre='" + nombre + '\'' +
-            ", apellidoPaterno='" + apellidoPaterno + '\'' +
-            ", apellidoMaterno='" + apellidoMaterno + '\'' +
-            ", genero='" + genero + '\'' +
-            '}';
   }
 }

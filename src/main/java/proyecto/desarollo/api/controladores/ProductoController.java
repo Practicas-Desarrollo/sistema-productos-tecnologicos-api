@@ -4,14 +4,14 @@ import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import proyecto.desarollo.api.modelos.Producto;
+import proyecto.desarollo.api.entidades.Producto;
 import proyecto.desarollo.api.servicios.ProductoService;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/v1/producto")
+@RequestMapping("/api/v1/")
 public class ProductoController {
   private final ProductoService productoService;
 
@@ -19,33 +19,33 @@ public class ProductoController {
     this.productoService = productoService;
   }
 
-  @GetMapping("/all")
-  public ResponseEntity<List<Producto>> getAllProductos() {
-    List<Producto> productos = productoService.findAllProductos();
+  @GetMapping("/productos")
+  public ResponseEntity<List<Producto>> getProductos() {
+    List<Producto> productos = productoService.getAllProductos();
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
 
-  @GetMapping("/find/{id}")
-  public ResponseEntity<Producto> getProductoById(@PathVariable("id") UUID id) {
-    Producto producto = productoService.findProductoById(id);
+  @GetMapping("/productos/{productoId}")
+  public ResponseEntity<Producto> getProductoById(@PathVariable("productoId") UUID id) {
+    Producto producto = productoService.getProductoById(id);
     return new ResponseEntity<>(producto, HttpStatus.OK);
   }
 
-  @PostMapping("/add")
-  public ResponseEntity<Producto> addProducto(@RequestBody Producto producto) {
+  @PostMapping("/saveProducto")
+  public ResponseEntity<Producto> saveProducto(@RequestBody Producto producto) {
     Producto productoCreado = productoService.addProducto(producto);
     return new ResponseEntity<>(productoCreado, HttpStatus.CREATED);
   }
 
-  @PutMapping("/update")
+  @PutMapping("/updateProducto")
   public ResponseEntity<Producto> updateProducto(@RequestBody Producto producto) {
     Producto productoActualizado = productoService.updateProducto(producto);
     return new ResponseEntity<>(productoActualizado, HttpStatus.OK);
   }
 
-  @DeleteMapping("/delete/{id}")
+  @DeleteMapping("/deleteProducto/{productoId}")
   @Transactional
-  public ResponseEntity<Producto> deleteProductoById(@PathVariable("id") UUID id) {
+  public ResponseEntity<Producto> deleteProductoById(@PathVariable("productoId") UUID id) {
     productoService.deleteProducto(id);
     return new ResponseEntity<>(HttpStatus.OK);
   }

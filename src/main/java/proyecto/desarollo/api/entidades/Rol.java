@@ -1,6 +1,8 @@
 package proyecto.desarollo.api.entidades;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,6 +19,8 @@ public class Rol implements Serializable {
   @Column(unique = true)
   private String nombre;
 
+  @Min(value = 0, message = "El estado no puede ser negativo")
+  @Max(value = 1, message = "El estado solo puede ser 0 o 1")
   private int estado;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "rol")

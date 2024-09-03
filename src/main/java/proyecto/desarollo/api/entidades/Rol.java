@@ -1,18 +1,32 @@
-package proyecto.desarollo.api.modelos;
+package proyecto.desarollo.api.entidades;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "rol")
 public class Rol implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  @Column(nullable = false, updatable = false)
+  @Column(name = "id_rol", nullable = false, updatable = false)
   private UUID id;
+
+  @Column(unique = true)
   private String nombre;
+
   private int estado;
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "rol")
+  private List<Cliente> clientes;
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "rol")
+  private List<Proveedor> proveedores;
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "rol")
+  private List<Usuario> usuarios;
 
   public Rol() {}
 

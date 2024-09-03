@@ -1,34 +1,41 @@
-package proyecto.desarollo.api.modelos;
+package proyecto.desarollo.api.entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.UUID;
 
-public class Persona {
+@MappedSuperclass
+public abstract class Persona {
   @Id
+  @Column(name = "id_persona", nullable = false, updatable = false)
   @GeneratedValue(strategy = GenerationType.UUID)
-  @Column(nullable = false, updatable = false)
   private UUID id;
+
+  @NotNull(message = "El nombre no puede ser nulo")
   private String nombre;
+
+  @NotNull(message = "El apellido paterno no puede ser nulo")
+  @Column(name = "apellido_paterno")
   private String apellidoPaterno;
+
+  @NotNull(message = "El apellido materno no puede ser nulo")
+  @Column(name = "apellido_materno")
   private String apellidoMaterno;
+
+  @NotNull(message = "El genero no puede ser nulo")
   private String genero;
-  private Rol tipo;
 
   public Persona() {
   }
 
   public Persona(UUID id, String nombre, String apellidoPaterno,
-                 String apellidoMaterno, String genero, Rol tipo) {
+                 String apellidoMaterno, String genero) {
     this.id = id;
     this.nombre = nombre;
     this.apellidoPaterno = apellidoPaterno;
     this.apellidoMaterno = apellidoMaterno;
     this.genero = genero;
-    this.tipo = tipo;
   }
 
   public UUID getId() {
@@ -71,14 +78,6 @@ public class Persona {
     this.genero = genero;
   }
 
-  public Rol getTipo() {
-    return tipo;
-  }
-
-  public void setTipo(Rol tipo) {
-    this.tipo = tipo;
-  }
-
   @Override
   public String toString() {
     return "Persona{" +
@@ -87,7 +86,6 @@ public class Persona {
             ", apellidoPaterno='" + apellidoPaterno + '\'' +
             ", apellidoMaterno='" + apellidoMaterno + '\'' +
             ", genero='" + genero + '\'' +
-            ", tipo=" + tipo +
             '}';
   }
 }

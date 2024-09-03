@@ -1,25 +1,30 @@
-package proyecto.desarollo.api.modelos;
+package proyecto.desarollo.api.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
+@Table(name = "usuario")
 public class Usuario extends Persona implements Serializable {
   private String username;
+
   private String password;
-  @Id
+
   private int estado;
+
+  @ManyToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "id_rol", nullable = false)
+  private Rol rol;
 
   public Usuario() {}
 
   public Usuario(UUID id, String nombre, String apellidoPaterno,
-                 String apellidoMaterno, String genero, Rol tipo,
+                 String apellidoMaterno, String genero,
                  String username, String password, int estado) {
     super(id, nombre, apellidoPaterno,
-            apellidoMaterno, genero, tipo);
+            apellidoMaterno, genero);
     this.username = username;
     this.password = password;
     this.estado = estado;
@@ -47,5 +52,13 @@ public class Usuario extends Persona implements Serializable {
 
   public void setEstado(int estado) {
     this.estado = estado;
+  }
+
+  public Rol getRol() {
+    return this.rol;
+  }
+
+  public void setRol(Rol rol) {
+    this.rol = rol;
   }
 }

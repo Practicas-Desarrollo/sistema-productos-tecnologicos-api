@@ -1,6 +1,8 @@
 package proyecto.desarollo.api.entidades;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,17 +22,16 @@ public abstract class Persona {
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
-  @NotNull(message = "El nombre no puede ser nulo")
+  @NotBlank(message = "El nombre no puede estar en blanco")
   private String nombre;
 
-  @NotNull(message = "El apellido paterno no puede ser nulo")
+  @NotBlank(message = "El apellido paterno no puede estar vacio")
   @Column(name = "apellido_paterno")
   private String apellidoPaterno;
 
-  @NotNull(message = "El apellido materno no puede ser nulo")
   @Column(name = "apellido_materno")
   private String apellidoMaterno;
 
-  @NotNull(message = "El genero no puede ser nulo")
+  @NotBlank(message = "El genero no puede estar vacio")
   private String genero;
 }

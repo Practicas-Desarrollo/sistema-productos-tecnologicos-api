@@ -3,6 +3,7 @@ package proyecto.desarollo.api.entidades;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,11 +20,13 @@ import java.util.UUID;
 @Entity
 @Table(name = "rol")
 public class Rol implements Serializable {
+
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   @Column(name = "id_rol", nullable = false, updatable = false)
   private UUID id;
 
+  @NotBlank(message = "El nombre no puede estar en blanco")
   @Column(unique = true)
   private String nombre;
 
@@ -31,12 +34,12 @@ public class Rol implements Serializable {
   @Max(value = 1, message = "El estado solo puede ser 0 o 1")
   private int estado;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "rol")
+  @OneToMany(mappedBy = "rol")
   private List<Cliente> clientes;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "rol")
+  @OneToMany(mappedBy = "rol")
   private List<Proveedor> proveedores;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "rol")
+  @OneToMany(mappedBy = "rol")
   private List<Usuario> usuarios;
 }

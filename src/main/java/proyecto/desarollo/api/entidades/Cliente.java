@@ -1,9 +1,7 @@
 package proyecto.desarollo.api.entidades;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,16 +17,15 @@ import java.util.UUID;
 @Entity
 @Table(name = "cliente")
 public class Cliente extends Persona implements Serializable {
-  @GeneratedValue(strategy = GenerationType.UUID)
-  @Column(name = "codigo_cliente", nullable = false, updatable = false)
-  private UUID codigoCliente;
 
-  @NotNull(message = "El campo de CI no debe estar vacio")
-  @Min(value = 0, message = "El CI no puede ser negativo")
+  @NotBlank(message = "El campo no puede estar vacio")
+  @Column(name = "codigo_cliente")
+  private String codigoCliente;
+
+  @PositiveOrZero(message = "El CI debe ser positivo o 0")
   private int ci;
 
-  @NotNull(message = "El NIT no debe estar vacio")
-  @Min(value = 0, message = "El NIT no puede ser negativo")
+  @PositiveOrZero(message = "El CI debe ser positivo o 0")
   private int nit;
 
   @ManyToOne(cascade = CascadeType.ALL)

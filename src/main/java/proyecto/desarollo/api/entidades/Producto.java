@@ -39,7 +39,7 @@ public class Producto implements Serializable {
   @Min(value = 0, message = "La cantidad no puede ser negativa")
   private int cantidad;
 
-  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "id_categoria")
   private Categoria categoria;
 }

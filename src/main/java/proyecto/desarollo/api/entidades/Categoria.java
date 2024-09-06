@@ -33,6 +33,6 @@ public class Categoria implements Serializable {
   @Positive(message = "La garantia debe ser un número positivo")
   private int garantia;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "categoria")
   private List<Producto> productos;
 }

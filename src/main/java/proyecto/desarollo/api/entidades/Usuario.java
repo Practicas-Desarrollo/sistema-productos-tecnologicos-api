@@ -4,10 +4,18 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.UUID;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "usuario")
 public class Usuario extends Persona implements Serializable {
@@ -24,52 +32,4 @@ public class Usuario extends Persona implements Serializable {
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "id_rol", nullable = false)
   private Rol rol;
-
-  public Usuario() {}
-
-  public Usuario(UUID id, String nombre, String apellidoPaterno, String apellidoMaterno, String genero, String username, String password, int estado) {
-    super(id, nombre, apellidoPaterno, apellidoMaterno, genero);
-    this.username = username;
-    this.password = password;
-    this.estado = estado;
-  }
-
-  public Usuario(String nombre, String apellidoPaterno, String apellidoMaterno, String genero, String username, String password, int estado) {
-    super(nombre, apellidoPaterno, apellidoMaterno, genero);
-    this.username = username;
-    this.password = password;
-    this.estado = estado;
-  }
-
-  public String getUsername() {
-    return this.username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public String getPassword() {
-    return this.password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public int getEstado() {
-    return this.estado;
-  }
-
-  public void setEstado(int estado) {
-    this.estado = estado;
-  }
-
-  public Rol getRol() {
-    return this.rol;
-  }
-
-  public void setRol(Rol rol) {
-    this.rol = rol;
-  }
 }

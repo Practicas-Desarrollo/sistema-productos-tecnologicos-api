@@ -3,11 +3,19 @@ package proyecto.desarollo.api.entidades;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "rol")
 public class Rol implements Serializable {
@@ -31,36 +39,4 @@ public class Rol implements Serializable {
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "rol")
   private List<Usuario> usuarios;
-
-  public Rol() {}
-
-  public Rol(UUID id, String nombre, int estado) {
-    this.id = id;
-    this.nombre = nombre;
-    this.estado = estado;
-  }
-
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-  public String getNombre() {
-    return nombre;
-  }
-
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
-
-  public int getEstado() {
-    return estado;
-  }
-
-  public void setEstado(int estado) {
-    this.estado = estado;
-  }
 }

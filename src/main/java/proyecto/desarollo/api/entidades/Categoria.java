@@ -3,11 +3,19 @@ package proyecto.desarollo.api.entidades;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "categoria")
 public class Categoria implements Serializable {
@@ -27,49 +35,4 @@ public class Categoria implements Serializable {
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.ALL)
   private List<Producto> productos;
-
-  public Categoria() {}
-
-  public Categoria(UUID id, String nombre, int garantia) {
-    this.id = id;
-    this.nombre = nombre;
-    this.garantia = garantia;
-  }
-
-  public Categoria(String nombre, int garantia) {
-    this.nombre = nombre;
-    this.garantia = garantia;
-  }
-
-  public UUID getId() {
-    return this.id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-  public String getNombre() {
-    return this.nombre;
-  }
-
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
-
-  public int getGarantia() {
-    return garantia;
-  }
-
-  public void setGarantia(int garantia) {
-    this.garantia = garantia;
-  }
-
-  public List<Producto> getProductos() {
-    return this.productos;
-  }
-
-  public void setProductos(List<Producto> productos) {
-    this.productos = productos;
-  }
 }

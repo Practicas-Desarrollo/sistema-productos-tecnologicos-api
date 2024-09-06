@@ -1,9 +1,17 @@
 package proyecto.desarollo.api.entidades;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "detalle_venta")
 public class DetalleVenta {
@@ -15,28 +23,4 @@ public class DetalleVenta {
 //  @JoinColumn(name = "id_venta")
 //  private Venta venta;
   private int estado;
-
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-//  public Venta getVenta() {
-//    return venta;
-//  }
-//
-//  public void setVenta(Venta venta) {
-//    this.venta = venta;
-//  }
-
-  public int getEstado() {
-    return estado;
-  }
-
-  public void setEstado(int estado) {
-    this.estado = estado;
-  }
 }

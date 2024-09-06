@@ -2,9 +2,17 @@ package proyecto.desarollo.api.entidades;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @MappedSuperclass
 public abstract class Persona {
   @Id
@@ -25,61 +33,4 @@ public abstract class Persona {
 
   @NotNull(message = "El genero no puede ser nulo")
   private String genero;
-
-  public Persona() {}
-
-  public Persona(UUID id, String nombre, String apellidoPaterno, String apellidoMaterno, String genero) {
-    this.id = id;
-    this.nombre = nombre;
-    this.apellidoPaterno = apellidoPaterno;
-    this.apellidoMaterno = apellidoMaterno;
-    this.genero = genero;
-  }
-
-  public Persona(String nombre, String apellidoPaterno, String apellidoMaterno, String genero) {
-    this.nombre = nombre;
-    this.apellidoPaterno = apellidoPaterno;
-    this.apellidoMaterno = apellidoMaterno;
-    this.genero = genero;
-  }
-
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-  public String getNombre() {
-    return nombre;
-  }
-
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
-
-  public String getApellidoPaterno() {
-    return apellidoPaterno;
-  }
-
-  public void setApellidoPaterno(String apellidoPaterno) {
-    this.apellidoPaterno = apellidoPaterno;
-  }
-
-  public String getApellidoMaterno() {
-    return apellidoMaterno;
-  }
-
-  public void setApellidoMaterno(String apellidoMaterno) {
-    this.apellidoMaterno = apellidoMaterno;
-  }
-
-  public String getGenero() {
-    return genero;
-  }
-
-  public void setGenero(String genero) {
-    this.genero = genero;
-  }
 }

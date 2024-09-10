@@ -26,9 +26,6 @@ public class ProductoService {
 
   public Producto addProducto(Producto producto) {
     producto.setId(UUID.randomUUID());
-//    Optional<Categoria> categoriaId = categoriaRepository.findCategoriaById(categoria.getId());
-//    producto.setCate
-
     return productoRepository.save(producto);
   }
 

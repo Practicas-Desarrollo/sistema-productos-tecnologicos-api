@@ -22,9 +22,9 @@ public class Venta {
   private UUID id;
   @Temporal(TemporalType.TIMESTAMP)
   private Date fecha;
-  @ManyToOne
-  @JoinColumn(name = "id_cliente")
-  private Cliente cliente;
+//  @ManyToOne
+//  @JoinColumn(name = "id_cliente")
+//  private Cliente cliente;
   private String descripcion;
 //  @ManyToOne
 //  @JoinColumn(name = "id_producto")

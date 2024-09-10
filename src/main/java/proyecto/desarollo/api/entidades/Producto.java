@@ -1,5 +1,6 @@
 package proyecto.desarollo.api.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -41,5 +42,6 @@ public class Producto implements Serializable {
 
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "id_categoria")
+  @JsonIgnore()
   private Categoria categoria;
 }
